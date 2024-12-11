@@ -1,6 +1,7 @@
 ﻿using Serilog;
 using TokenService.Manager.Controller;
 using RabbitMq.Package.Settings;
+using Region.Persistence.Infrastructure.Queue;
 //using Region.Persistence.Infrastructure.Queue;
 
 namespace Region.Persistence.Api;
@@ -14,7 +15,7 @@ public static class Initializer
         AddJWTToken(services, configuration);
         AddSerilog(services);
         AddRabbitMqService(services, configuration);
-        //AddRabbitMqSettings(services, configuration);
+        AddRabbitMqSettings(services, configuration);
     }
 
     private static void AddJWTToken(IServiceCollection services, IConfiguration configuration)
@@ -38,24 +39,20 @@ public static class Initializer
         services.Configure<RabbitMqSettings>(configuration.GetSection("RabbitMqSettings"));
     }
 
-    //private static void AddRabbitMqSettings(IServiceCollection services, IConfiguration configuration)
-    //{
-    //    var config = new RabbitMqSettings();
+    private static void AddRabbitMqSettings(IServiceCollection services, IConfiguration configuration)
+    {
+        var config = new RabbitMqSettings();
 
-    //    configuration.GetSection("RabbitMqSettings").Bind(config);
+        configuration.GetSection("RabbitMqSettings").Bind(config);
 
-    //    services
-    //        .AddQueueHandler(config.ComposedConnectionString)
-    //        .DeclareQueues(
-    //            new RabbitMqQueue(
-    //                exchangeName: RabbitMqConstants.UserPersistenceExchange,
-    //                routingKeyName: RabbitMqConstants.RegisterUserRoutingKey,
-    //                queueName: RabbitMqConstants.RegisterUserQueueName),
-    //            new RabbitMqQueue(
-    //                exchangeName: RabbitMqConstants.UserPersistenceExchange,
-    //                routingKeyName: RabbitMqConstants.ChangePasswordUserRoutingKey,
-    //                queueName: RabbitMqConstants.ChangePasswordUserQueueName)
-    //            )
-    //        ;
-    //}
+        services
+            .AddQueueHandler(config.ComposedConnectionString)
+            .DeclareQueues(
+                new RabbitMqQueue(
+                    exchangeName: RabbitMqConstants.UserPersistenceExchange,
+                    routingKeyName: RabbitMqConstants.RegisterUserRoutingKey,
+                    queueName: RabbitMqConstants.RegisterUserQueueName)
+                )
+            ;
+    }
 }

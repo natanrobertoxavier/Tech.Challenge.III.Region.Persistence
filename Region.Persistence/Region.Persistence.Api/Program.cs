@@ -1,13 +1,14 @@
-using Region.Persistence.Api.Filters;
-using Region.Persistence.Communication;
-using Region.Persistence.Infrastructure;
-using Region.Persistence.Application;
-using Region.Query.Application.Services.Automapper;
 using Prometheus;
+using Region.Persistence.Api;
+using Region.Persistence.Api.Filters;
+using Region.Persistence.Application;
+using Region.Persistence.Application.Services.Automapper;
+using Region.Persistence.Communication;
+using Region.Persistence.Domain.Extensions;
+using Region.Persistence.Infrastructure;
 using Region.Persistence.Infrastructure.Migrations;
 using Region.Persistence.Infrastructure.RepositoryAccess;
-using Region.Persistence.Domain.Extensions;
-using Region.Persistence.Api;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -66,6 +67,8 @@ builder.Services.AddScoped(provider => new AutoMapper.MapperConfiguration(cfg =>
 }).CreateMapper());
 
 builder.Services.AddScoped<AuthenticatedUserAttribute>();
+
+builder.Services.AddMediatR(config => config.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 
 var app = builder.Build();
 

@@ -9,6 +9,11 @@ using Region.Persistence.Application.Services;
 using Region.Persistence.Application.Services.LoggedUser;
 using Region.Persistence.Application.UseCase;
 using Region.Persistence.Application.UseCase.DDD;
+using Region.Persistence.Domain.Messages;
+using Region.Persistence.Application.Messages;
+using Region.Persistence.Domain.Messages.DomaiEvents;
+using Region.Persistence.Application.Messages.Handlers;
+using Region.Persistence.Application.Interfaces;
 //using Region.Persistence.Domain.Messages;
 //using Region.Persistence.Domain.Messages.DomaiEvents;
 
@@ -22,8 +27,8 @@ public static class Initializer
         AddJWTToken(services, configuration);
         AddUseCases(services);
         AddLoggedUser(services);
-        //AddDomainEvents(services);
-        //AddEvents(services);
+        AddDomainEvents(services);
+        AddEvents(services);
     }
 
     private static void AddAdditionalKeyPassword(IServiceCollection services, IConfiguration configuration)
@@ -48,14 +53,14 @@ public static class Initializer
         services.AddScoped<ILoggedUser, LoggedUser>();
     }
 
-    //private static void AddDomainEvents(IServiceCollection services)
-    //{
-    //    services.AddScoped<IMessagePublisher, MessagePublisher>();
-    //    services.AddScoped<INotificationHandler<UserCreateDomainEvent>, UserEventHandler>();
-    //}
+    private static void AddDomainEvents(IServiceCollection services)
+    {
+        services.AddScoped<IMessagePublisher, MessagePublisher>();
+        services.AddScoped<INotificationHandler<RegionCreateDomainEvent>, RegionEventHandler>();
+    }
 
-    //private static void AddEvents(IServiceCollection services)
-    //{
-    //    services.AddScoped<IEventAppService, EventsAppService>();
-    //}
+    private static void AddEvents(IServiceCollection services)
+    {
+        services.AddScoped<IEventAppService, EventsAppService>();
+    }
 }

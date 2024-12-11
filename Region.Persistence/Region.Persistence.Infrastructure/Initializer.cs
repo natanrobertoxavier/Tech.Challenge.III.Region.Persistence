@@ -2,16 +2,12 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Serilog;
-using System.Reflection;
 using Region.Persistence.Domain.Extensions;
-//using Region.Persistence.Domain.Repositories;
-//using Region.Persistence.Domain.Repositories.User;
 using Region.Persistence.Domain.Services;
-//using Region.Persistence.Infrastructure.Queue;
+using Region.Persistence.Infrastructure.Queue;
 using Region.Persistence.Infrastructure.RepositoryAccess;
-//using Region.Persistence.Infrastructure.RepositoryAccess.User;
 using Region.Persistence.Infrastructure.ServicesAccess;
+using System.Reflection;
 
 namespace Region.Persistence.Infrastructure;
 public static class Initializer
@@ -21,7 +17,7 @@ public static class Initializer
         AddFluentMigrator(services, configurationManager);
         AddContext(services, configurationManager);
         AddServices(services);
-        //AddRabbitMqDispatcher(services);
+        AddRabbitMqDispatcher(services);
         RegisterServices(services, configurationManager);
     }
 
@@ -60,10 +56,10 @@ public static class Initializer
         services.AddScoped<IRegionQueryServiceApi, RegionQueryServiceApi>();
     }
 
-    //private static void AddRabbitMqDispatcher(IServiceCollection services)
-    //{
-    //    services.AddScoped<IRabbitMqEventsDispatcher, RabbitMqEventsDispatcher>();
-    //}
+    private static void AddRabbitMqDispatcher(IServiceCollection services)
+    {
+        services.AddScoped<IRabbitMqEventsDispatcher, RabbitMqEventsDispatcher>();
+    }
 
     private static void RegisterServices(IServiceCollection services, IConfiguration configurationManager)
     {

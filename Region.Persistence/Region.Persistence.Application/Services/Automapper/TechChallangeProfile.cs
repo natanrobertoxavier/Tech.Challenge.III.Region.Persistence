@@ -2,7 +2,7 @@
 using Region.Persistence.Communication;
 using Region.Persistence.Communication.Request;
 
-namespace Region.Query.Application.Services.Automapper;
+namespace Region.Persistence.Application.Services.Automapper;
 public class TechChallengeProfile : Profile
 {
     public TechChallengeProfile()
@@ -12,7 +12,7 @@ public class TechChallengeProfile : Profile
 
     private void RequestToEntity()
     {
-        CreateMap<RequestRegionDDDJson, Persistence.Domain.Entities.RegionDDD>()
+        CreateMap<RequestRegionDDDJson, Domain.Entities.RegionDDD>()
             .ForMember(destiny => destiny.Region, config => config.MapFrom(origin => origin.Region.GetDescription()));
     }
 }
