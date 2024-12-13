@@ -57,7 +57,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-        cd Region.Persistence && sudo docker build -t regionquery:latest .
+        cd Region.Persistence && sudo docker build -t regionpersistence:latest .
 
     - name: Deploy using Docker Compose
       run: |

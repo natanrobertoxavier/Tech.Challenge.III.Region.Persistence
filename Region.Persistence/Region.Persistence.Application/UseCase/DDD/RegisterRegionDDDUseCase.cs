@@ -54,7 +54,7 @@ public class RegisterRegionDDDUseCase(
                 loggedUser.Id)
             );
 
-            _logger.Information($"End {nameof(RegisterDDDAsync)}. User: {request.DDD}.");
+            _logger.Information($"End {nameof(RegisterDDDAsync)}. DDD: {request.DDD}.");
 
             return output.Success(new MessageResult("Cadastro em processamento."));
         }
