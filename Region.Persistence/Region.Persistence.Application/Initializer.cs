@@ -1,21 +1,15 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using TokenService.Manager.Controller;
-//using Region.Persistence.Application.Interfaces;
-//using Region.Persistence.Application.Messages;
-//using Region.Persistence.Application.Messages.Handlers;
+using Region.Persistence.Application.Interfaces;
+using Region.Persistence.Application.Messages;
+using Region.Persistence.Application.Messages.Handlers;
 using Region.Persistence.Application.Services;
 using Region.Persistence.Application.Services.LoggedUser;
-using Region.Persistence.Application.UseCase;
 using Region.Persistence.Application.UseCase.DDD;
 using Region.Persistence.Domain.Messages;
-using Region.Persistence.Application.Messages;
 using Region.Persistence.Domain.Messages.DomaiEvents;
-using Region.Persistence.Application.Messages.Handlers;
-using Region.Persistence.Application.Interfaces;
-//using Region.Persistence.Domain.Messages;
-//using Region.Persistence.Domain.Messages.DomaiEvents;
+using TokenService.Manager.Controller;
 
 namespace Region.Persistence.Application;
 

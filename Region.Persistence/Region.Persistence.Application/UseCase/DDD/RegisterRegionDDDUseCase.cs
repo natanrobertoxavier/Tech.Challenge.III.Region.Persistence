@@ -46,7 +46,6 @@ public class RegisterRegionDDDUseCase(
 
             entity.UserId = loggedUser.Id;
 
-
             await _mediator.Publish(new RegionCreateDomainEvent(
                 Guid.NewGuid(),
                 request.DDD,

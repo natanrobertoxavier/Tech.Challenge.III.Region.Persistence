@@ -2,7 +2,6 @@
 using TokenService.Manager.Controller;
 using RabbitMq.Package.Settings;
 using Region.Persistence.Infrastructure.Queue;
-//using Region.Persistence.Infrastructure.Queue;
 
 namespace Region.Persistence.Api;
 
