@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using System.Net;
 using Region.Persistence.Communication.Response;
 using Region.Persistence.Exceptions;
 using Region.Persistence.Exceptions.ExceptionBase;
+using System.Net;
 
 namespace Region.Persistence.Api.Filters;
 

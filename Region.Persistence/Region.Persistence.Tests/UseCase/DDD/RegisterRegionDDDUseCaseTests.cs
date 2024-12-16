@@ -10,8 +10,6 @@ using Region.Persistence.Domain.Entities;
 using Region.Persistence.Domain.Messages.DomaiEvents;
 using Region.Persistence.Domain.ResultServices;
 using Region.Persistence.Domain.Services;
-using Region.Persistence.Exceptions;
-using Region.Persistence.Exceptions.ExceptionBase;
 using Serilog;
 using TokenService.Manager.Controller;
 using Xunit;

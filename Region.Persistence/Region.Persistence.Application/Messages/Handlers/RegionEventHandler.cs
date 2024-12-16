@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using Serilog;
 using Region.Persistence.Application.Interfaces;
 using Region.Persistence.Domain.Messages.DomaiEvents;
+using Serilog;
 
 namespace Region.Persistence.Application.Messages.Handlers;
 public class RegionEventHandler(

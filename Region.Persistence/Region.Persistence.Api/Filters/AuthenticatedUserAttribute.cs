@@ -2,13 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.IdentityModel.Tokens;
-using System.ComponentModel.DataAnnotations;
-using TokenService.Manager.Controller;
 using Region.Persistence.Communication.Response;
 using Region.Persistence.Domain.Services;
 using Region.Persistence.Exceptions;
 using Region.Persistence.Exceptions.ExceptionBase;
-using Region.Persistence.Infrastructure.ServicesAccess;
+using System.ComponentModel.DataAnnotations;
+using TokenService.Manager.Controller;
 
 namespace Region.Persistence.Api.Filters;
 

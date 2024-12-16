@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
-using TokenService.Manager.Controller;
 using Region.Persistence.Domain.Services;
+using TokenService.Manager.Controller;
 
 namespace Region.Persistence.Application.Services.LoggedUser;
 public class LoggedUser(

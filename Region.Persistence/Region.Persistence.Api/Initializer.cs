@@ -1,7 +1,7 @@
-﻿using Serilog;
-using TokenService.Manager.Controller;
-using RabbitMq.Package.Settings;
+﻿using RabbitMq.Package.Settings;
 using Region.Persistence.Infrastructure.Queue;
+using Serilog;
+using TokenService.Manager.Controller;
 
 namespace Region.Persistence.Api;
 
@@ -48,9 +48,9 @@ public static class Initializer
             .AddQueueHandler(config.ComposedConnectionString)
             .DeclareQueues(
                 new RabbitMqQueue(
-                    exchangeName: RabbitMqConstants.UserPersistenceExchange,
-                    routingKeyName: RabbitMqConstants.RegisterUserRoutingKey,
-                    queueName: RabbitMqConstants.RegisterUserQueueName)
+                    exchangeName: RabbitMqConstants.RegionPersistenceExchange,
+                    routingKeyName: RabbitMqConstants.RegisterRegionRoutingKey,
+                    queueName: RabbitMqConstants.RegisterRegionQueueName)
                 )
             ;
     }

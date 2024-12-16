@@ -1,5 +1,4 @@
-﻿using Region.Persistence.Exceptions;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace Region.Persistence.Exceptions.ExceptionBase;
 

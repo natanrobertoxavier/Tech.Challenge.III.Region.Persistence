@@ -1,6 +1,4 @@
-﻿using Region.Persistence.Domain.Entities;
-
-namespace Region.Persistence.Application.Events;
+﻿namespace Region.Persistence.Application.Events;
 public class OnRegionCreateMessage(
     Guid id,
     DateTime registrationDate,
